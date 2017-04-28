@@ -71,7 +71,7 @@ namespace MvvmCross.Test.Navigation
         {
             var url = "mvx://fail/?id=" + Guid.NewGuid();
 
-            Assert.That(RoutingService.CanNavigate(url), Is.False);
+            Assert.That(await RoutingService.CanNavigate(url), Is.False);
             await RoutingService.Navigate(url);
 
             MockDispatcher.Verify(x => x.ShowViewModel(It.IsAny<MvxViewModelRequest>()), Times.Never);
